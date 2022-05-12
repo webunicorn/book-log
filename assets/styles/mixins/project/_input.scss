@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+/// input
+@mixin input {
+  display: inline-flex;
+  position: relative;
+  vertical-align: top;
+
+  input {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+  }
+
+  &__input,
+  &__selected-item {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: $input-height;
+    line-height: $input-height;
+    padding: 0 $input-padding;
+    font-size: 14px;
+    font-weight: 600;
+    background: transparent;
+    color: $input-text-color;
+    border: 2px solid $input-border-color;
+    caret-color: #23a2ff;
+    outline: 0;
+    transition: all $duration $easing;
+
+    @include mobile {
+      padding: 0 $mobile-input-padding;
+      height: $mobile-input-height;
+      line-height: $mobile-input-height;
+      border-width: 1px;
+      font-size: 10px;
+    }
+
+    &::placeholder {
+      color: $placeholder-color;
+    }
+
+    &::-ms-clear {
+      display: none;
+    }
+
+    &:focus {
+      border-color: $primary-color;
+    }
+
+    :lang(ko) & {
+      font-size: 15px;
+
+      @include mobile {
+        font-size: 11px;
+      }
+    }
+  }
+
+  &--inline {
+    display: inline-block;
+  }
+
+  &--inline &__input,
+  &--inline &__selected-item {
+    padding: 0 8px;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  /*&__input:focus,
+  &__selectbox:focus + &__selected-item,
+  &__input.is-focused {
+    border-color: $input-border-color;
+  }*/
+
+  &.has-icon &__input {
+    padding-right: $input-height + $input-padding;
+  }
+
+  &.is-disabled &__input:not(.is-enable),
+  &.is-disabled &__selectbox + &__selected-item:not(.is-enable) {
+    color: $input-text-disable-color;
+    border-color: $input-border-disable-color;
+    background-color: $input-bg-disable-color;
+    cursor: default;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: $input-padding;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &__textarea {
+    padding: calc($input-padding / 2) $input-padding;
+    height: 88px;
+    min-height: 88px;
+    line-height: 1.57;
+    resize: vertical;
+  }
+
+  &__invalid-message {
+    margin-top: 8px;
+  }
+}

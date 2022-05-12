@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+/// Set Fonts
+@mixin set-font($font: 'default') {
+  @if ($font == 'default') {
+    font-family: $default-font;
+
+    :lang(ko) & {
+      font-family: $font-family-KR;
+    }
+  } @else if ($font == 'condensed') {
+    font-family: $default-condensed-font;
+
+    :lang(ko) & {
+      font-family: $font-family-KR;
+    }
+  }
+}

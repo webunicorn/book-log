@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+/// rotate animation
+@mixin ani-spin-around($name: '', $min: 0deg, $max: 359deg) {
+  @keyframes spin-around#{if($name == '', '', '-' + $name)} {
+    from {
+      transform: rotate($min);
+    }
+
+    to {
+      transform: rotate($max);
+    }
+  }
+}
+
+/// loading icon
+/// You can override attributes of loading spinner in each component if you want
+.v-loading {
+  $spinner-dimensions: 60px;
+
+  @include ani-spin-around;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  transition: transform $duration $easing;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__icon {
+    @include spinner;
+  }
+}

@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+/// Responsive layout
+$gap: 1px !default;
+$tablet: 768px + $gap !default;
+$desktop: 1024px + $gap !default;
+$notebook: 1366px + $gap !default;
+$fullhd: 1920px + $gap !default;
+$qhd: 2560 + $gap !default;
+
+$fullhd-enabled: true !default;
+$qhd-enabled: true !default;
+
+/// From a specific device screen size
+@mixin from($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
+/// Until a specific device screen size
+@mixin until($device) {
+  @media screen and (max-width: ($device - 1px)) {
+    @content;
+  }
+}
+
+/// From a specific device screen size to until a specific device screen size
+@mixin between($device1, $device2) {
+  @media screen and (min-width: $device1) and (max-width: ($device2 - 1px)) {
+    @content;
+  }
+}
+
+/// Mobile device (include landscape mode)
+@mixin mobile {
+  @media screen and (max-width: ($tablet - 1px)) {
+    @content;
+  }
+}
+
+/// From a tablet device screen size
+@mixin tablet {
+  @media screen and (min-width: $tablet), print {
+    @content;
+  }
+}
+
+/// Tablet device only
+@mixin tablet-only {
+  @media screen and (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    @content;
+  }
+}
+
+/// Touch device (Mobile & Tablet)
+@mixin touch {
+  @media screen and (max-width: ($desktop - 1px)) {
+    @content;
+  }
+}
+
+/// From a $notebook screen size
+@mixin notebook {
+  @media screen and (min-width: ($tablet + 1px)) and (max-width: $notebook) {
+    @content;
+  }
+}
+
+/// From a desktop screen size
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+/// From a desktop to fullhd
+@mixin desktop-only {
+  @if $fullhd-enabled {
+    @media screen and (min-width: $desktop) and (max-width: ($fullhd - 1px)) {
+      @content;
+    }
+  }
+}
+
+/// Until a fullhd screen size
+@mixin until-fullhd {
+  @if $fullhd-enabled {
+    @media screen and (max-width: ($fullhd - 1px)) {
+      @content;
+    }
+  }
+}
+
+/// From a fullhd screen size
+@mixin fullhd {
+  @if $fullhd-enabled {
+    @media screen and (min-width: $fullhd) {
+      @content;
+    }
+  }
+}
+
+/// From a fullhd to qhd
+@mixin fullhd-only {
+  @if $fullhd-enabled {
+    @media screen and (min-width: $fullhd) and (max-width: ($qhd - 1px)) {
+      @content;
+    }
+  }
+}
+
+/// Until a qhd screen size
+@mixin until-qhd {
+  @if $qhd-enabled {
+    @media screen and (max-width: ($qhd - 1px)) {
+      @content;
+    }
+  }
+}
+
+/// From a qhd screen size
+@mixin qhd {
+  @if $qhd-enabled {
+    @media screen and (min-width: $qhd) {
+      @content;
+    }
+  }
+}
+
+/// landscape
+@mixin landscape() {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
