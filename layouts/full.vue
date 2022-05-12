@@ -1,10 +1,12 @@
 <template>
-  <MainSection />
+  <div class="layout-full">
+    <Nuxt class="layout-full__body" />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'full',
 }
 </script>
 
