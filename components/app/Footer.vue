@@ -17,5 +17,6 @@ export default {
   width: 100%;
   height: $footer-height;
   background: #000;
+  border: 1px solid red;
 }
 </style>
