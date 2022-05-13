@@ -3,13 +3,22 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    es6: true,
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
     requireConfigFile: false,
   },
-  extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
+  extends: [
+    '@nuxtjs',
+    'plugin:nuxt/recommended',
+    'plugin:prettier/recommended',
+  ],
   plugins: [],
   // add your custom rules here
-  rules: {},
+  rules: {
+    'no-console': 'off',
+    'vue/no-v-html': 0,
+    'vue/multi-word-component-names': 0,
+  },
 }

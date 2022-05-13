@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+/// modal
+@mixin modal-layout {
+  box-sizing: border-box;
+  position: relative;
+  padding: $modal-padding;
+  min-width: $modal-width;
+  max-width: 100%;
+  color: #333;
+  background: #fff;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: (-$modal-padding) (-$modal-padding) 0 (-$modal-padding);
+    padding: 0 $modal-padding;
+    z-index: 10;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &__header-items {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    position: relative;
+    height: 56px;
+    line-height: 56px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #111;
+
+    @include ellipsis;
+  }
+
+  &__container {
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+  }
+
+  &__container-wrap {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    position: relative;
+    // min-height: 96px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 40px;
+  }
+
+  #{&}__footer-btn {
+    margin: 0 4px;
+
+    &:only-of-type {
+      margin: 0;
+    }
+  }
+}

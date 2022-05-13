@@ -1,0 +1,71 @@
+@charset "utf-8";
+/// Font
+$default-font: 'Noto Sans KR';
+
+$font-family: $default-font, 'Roboto Condensed', BlinkMacSystemFont,
+  -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+  'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$font-family-KR: 'Spoqa Han Sans Neo', sans-serif;
+
+// $primary: #0054ff !default;
+// $secondary: #f5f6f8;
+// $success: #28c76f;
+// $danger: #f54c44;
+// $warning: #fe8a01;
+// $info: #2562eb;
+// $dark: #393c41;
+// $light: #fafafb;
+
+/// Animation & Transition
+$duration: 200ms;
+$easing: ease-out;
+
+/// Colors
+$primary-color: #0054ff !default;
+$secondary-color: #008cff;
+$text-primary-color: #1d1d1e;
+$bg-primary: #2a2a2a;
+
+/// Sns Colors
+$facebook-color: #1877f2;
+$twitter-color: #1d9bf0;
+$naver-color: #03cf5d;
+
+/// layouts
+$layout-min-width: 320px;
+$content-width: 1768px;
+$section-width: 1320px;
+$content-margin: 20px;
+$touch-content-margin: 42px;
+$mobile-content-margin: 32px;
+$container-width: $content-width + ($content-margin * 2);
+
+/// Header
+$header-height: 90px !default;
+$header-height-mobile: 66px;
+
+/// Footer
+$footer-height: 226px;
+
+/// Cookie Policy
+$cookie-layer-height: 60px;
+$touch-cookie-layer-height: 144px;
+
+/// Input
+$input-padding: 16px;
+$mobile-input-padding: 12px;
+$input-height: 48px;
+$mobile-input-height: 36px;
+$input-border-radius: 4px;
+$input-text-color: #000;
+$input-text-disable-color: #a8b0cc;
+$input-border-color: #a8b0cc;
+$input-border-disable-color: #a8b0cc;
+$input-bg-disable-color: #ced3e8;
+$placeholder-color: #a8b0cc;
+$input-error-color: #b80000;
+
+/// Modal
+$modal-width: 436px;
+$modal-padding: 24px;
+$modal-border-radius: 4px;

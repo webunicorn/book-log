@@ -1,4 +1,7 @@
 export default {
+  server: {
+    port: 5000,
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'book-log',
@@ -15,13 +18,20 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~assets/styles/common.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: {
+    dirs: [
+      '~/components',
+      '~/components/commons',
+      '~/components/app',
+      '~/components/main',
+    ],
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [

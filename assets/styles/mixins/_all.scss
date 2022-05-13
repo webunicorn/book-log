@@ -1,0 +1,215 @@
+@charset "utf-8";
+
+@import './media.scss';
+@import './fonts.scss';
+@import './project/all';
+
+/// Ellipsis
+@mixin ellipsis($line-clamp: 0) {
+  @if ($line-clamp == 0) {
+    display: block;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $line-clamp;
+    -webkit-box-orient: vertical;
+  }
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/// Hidden text
+@mixin hidden-text {
+  font-size: 0 !important;
+  color: transparent !important;
+}
+
+/// Overlay layer
+@mixin overlay(
+  $offset: 0,
+  $z: 10000,
+  $is-flex-center: false,
+  $is-background-dimmed: false
+) {
+  display: block;
+  position: fixed;
+  top: $offset;
+  right: $offset;
+  bottom: $offset;
+  left: $offset;
+  z-index: $z;
+
+  @if ($is-flex-center) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @if ($is-background-dimmed) {
+    background: rgba(0, 0, 0, 0.65);
+  }
+}
+
+/// Prevent Drag and Text Selection
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/// Custom Scrollbar
+@mixin custom-scrollbar($color: #fff, $size: 5px) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color, 0.2);
+    border-radius: 8px;
+  }
+
+  scrollbar-arrow-color: transparent;
+  scrollbar-track-color: transparent;
+  scrollbar-face-color: #dbdaff;
+  scrollbar-highlight-color: transparent;
+  scrollbar-shadow-color: transparent;
+}
+
+/// Horizontal scrolling
+@mixin horizontal-scroll($type: default, $height: auto, $disableScroll: false) {
+  $non-scroll-margin: 50px;
+
+  @if ($type == flex) {
+    display: flex;
+    flex-wrap: nowrap;
+
+    & > * {
+      flex: 0 0 auto;
+    }
+  } @else {
+    white-space: nowrap;
+    line-height: 0;
+    font-size: 0;
+
+    & > * {
+      display: inline-block;
+      vertical-align: top;
+      line-height: normal;
+      font-size: medium;
+    }
+  }
+
+  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @include custom-scrollbar;
+
+  @if ($disableScroll == true) {
+    margin-bottom: -$non-scroll-margin;
+    padding-bottom: $non-scroll-margin;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+@mixin spinner {
+  width: 56px;
+  height: 56px;
+  border: 6px solid rgba($primary-color, 0.15);
+  border-top-color: rgba($primary-color, 0.9);
+  border-bottom-color: rgba($primary-color, 0.9);
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: spin 0.7s ease infinite;
+
+  @include mobile {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@mixin table-template {
+  position: relative;
+  width: 100%;
+  background: #edf1ff;
+
+  tbody:last-child tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr > :last-child {
+    border-right: none;
+  }
+
+  th {
+    height: 54px;
+    box-sizing: border-box;
+    border-right: 2px solid #0049dd;
+    border-bottom: 2px solid #0049dd;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    background: $primary-color;
+    vertical-align: middle;
+    text-transform: uppercase;
+    transition: $duration $easing;
+
+    :lang(ko) & {
+      font-size: 15px;
+
+      @include mobile {
+        font-size: 10px;
+      }
+    }
+
+    @include mobile {
+      height: 43px;
+      padding: 0 10px;
+      border-right: 1px solid #0049dd;
+      border-bottom: 1px solid #0049dd;
+      font-size: 10px;
+    }
+  }
+
+  tr > td:last-child {
+    border-right: none;
+  }
+
+  td {
+    min-height: 72px;
+    padding: 18px 0;
+    box-sizing: border-box;
+    border-bottom: 2px solid #dae1fc;
+    border-right: 2px solid #dae1fc;
+    font-size: 26px;
+    color: #000;
+    font-weight: 600;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1;
+    transition: $duration $easing;
+
+    @include tablet-only {
+      padding: 18px 5px;
+    }
+
+    @include mobile {
+      height: 69px;
+      border-bottom: 1px solid #dae1fc;
+      border-right: 1px solid #dae1fc;
+      font-size: 19px;
+    }
+  }
+}

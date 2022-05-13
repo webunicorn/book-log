@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+/// Helper Selectors
+.is-hidden-text {
+  @include hidden-text;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.is-overlay {
+  @include overlay();
+}
+
+/// Resposive layout
+.from-desktop {
+  display: block;
+
+  @include touch {
+    display: none;
+  }
+}
+
+.from-touch {
+  display: block;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.until-touch {
+  display: none;
+
+  @include touch {
+    display: block;
+  }
+}
+
+.until-mobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}

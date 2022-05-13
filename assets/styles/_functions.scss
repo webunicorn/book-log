@@ -1,0 +1,44 @@
+/// Number filter
+@function get-value($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+/// Rem To Pixel
+@function rem-to-pixel($rem, $base-size: 16px) {
+  @if (unit($rem) == 'rem') {
+    @return (get-value($rem) * $base-size);
+  } @else {
+    @return $rem;
+  }
+}
+
+/// Em To Pixel
+@function em-to-pixel($em, $base-size: 16px) {
+  @if (unit($em) == 'em') {
+    @return (get-value($em) * $base-size);
+  } @else {
+    @return $em;
+  }
+}
+
+/// Pixel To Rem
+@function pixel-to-rem($pixel, $base-size: 16px) {
+  @if (unit($pixel) == 'px') {
+    // stylelint-disable
+    @return (get-value($pixel) / get-value($base-size)) + 0rem;
+    // stylelint-enable
+  } @else {
+    @return $pixel;
+  }
+}
+
+/// Pixel To mm
+@function pixel-to-mm($pixel, $mm-px-ratio: 3.779527559055) {
+  @if (unit($pixel) == 'px') {
+    // stylelint-disable
+    @return (get-value($pixel) / $mm-px-ratio) + 0mm;
+    // stylelint-enable
+  } @else {
+    @return $pixel;
+  }
+}
