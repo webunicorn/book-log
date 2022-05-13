@@ -1,6 +1,7 @@
 <template>
   <div class="footer">
-    <p>footer!</p>
+    <p>footer!!!</p>
+    <span>test</span>
   </div>
 </template>
 
