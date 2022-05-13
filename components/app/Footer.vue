@@ -2,7 +2,7 @@
   <div class="footer">
     <p>footer!!!~!!!!!!!!!!!!!!!!!!</p>
     <p>footer!!!~!!!!</p>
-    <span>test!!!~!!!!!!!__+++!!!!</span>
+    <span>test!!!~!!!!!!!__+++!!!!tet만 하네</span>
   </div>
 </template>
 
