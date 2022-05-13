@@ -19,5 +19,6 @@ export default {
   height: $footer-height;
   background: #000;
   border: 1px solid red;
+  font-size: 10px;
 }
 </style>
