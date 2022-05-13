@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <p>footer!!!</p>
+    <p>footer!!!~</p>
     <span>test~</span>
   </div>
 </template>
@@ -19,5 +19,6 @@ export default {
   height: $footer-height;
   background: #000;
   border: 1px solid red;
+  font-size: 10px;
 }
 </style>
