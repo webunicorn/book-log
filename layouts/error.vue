@@ -1,7 +1,7 @@
 <template>
   <div class="error">
     <p>Here Is Error Page!</p>
-    <button @click="goHome">back home!</button>
+    <button @click="goHome">back home!!</button>
   </div>
 </template>
 
