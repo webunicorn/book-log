@@ -3,7 +3,7 @@ import axios from 'axios'
 const Kakao = axios.create({
   baseURL: 'https://dapi.kakao.com',
   headers: {
-    Authorization: `KakaoAK bda7af64b598391cc6061eb3c39b107f`,
+    Authorization: `KakaoAK`,
   },
 })
 
@@ -14,7 +14,7 @@ export const bookSearch = (params) => {
 // const config = {
 //   baseURL: 'https://dapi.kakao.com/v3/search/book',
 //   headers: {
-//     Authorization: `KakaoAK bda7af64b598391cc6061eb3c39b107f`,
+//     Authorization: `KakaoAK`,
 //   },
 // }
 
