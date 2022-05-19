@@ -1,6 +1,9 @@
 <template>
   <div class="header">
-    <p>header!!!~~~!!!</p>
+    <ul>
+      <li><nuxt-link :to="{ path: '/' }">Home</nuxt-link></li>
+      <li><nuxt-link :to="{ path: '/mypage' }">MyPage</nuxt-link></li>
+    </ul>
   </div>
 </template>
 
@@ -14,8 +17,19 @@ export default {
 @import '~/assets/styles/all';
 
 .header {
+  display: flex;
+  align-items: center;
   width: 100%;
   height: $header-height;
   background: palevioletred;
+}
+
+ul {
+  display: flex;
+
+  li {
+    font-size: 20px;
+    margin: 0 20px;
+  }
 }
 </style>

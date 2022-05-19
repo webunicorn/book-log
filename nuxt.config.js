@@ -33,6 +33,7 @@ export default {
       '~/components/commons',
       '~/components/app',
       '~/components/main',
+      '~/components/mypage',
     ],
   },
 
