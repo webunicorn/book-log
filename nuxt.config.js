@@ -2,6 +2,9 @@ export default {
   server: {
     port: 5000,
   },
+  env: {
+    kakaoApi: process.env.KAKAO_API_KEY,
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'book-log',

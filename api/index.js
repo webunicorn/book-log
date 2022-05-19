@@ -3,24 +3,13 @@ import axios from 'axios'
 const Kakao = axios.create({
   baseURL: 'https://dapi.kakao.com',
   headers: {
-    Authorization: `KakaoAK`,
+    Authorization: `KakaoAK ${process.env.kakaoApi}`,
   },
 })
 
-export const bookSearch = (params) => {
-  return Kakao.get('/v3/search/book', { params })
+export const bookSearch = (query) => {
+  const params = {
+    sort: 'accuracy',
+  }
+  return Kakao.get(`/v3/search/book?query=${query}&sort=${params.sort}`)
 }
-
-// const config = {
-//   baseURL: 'https://dapi.kakao.com/v3/search/book',
-//   headers: {
-//     Authorization: `KakaoAK`,
-//   },
-// }
-
-// function fetchBook() {
-//   const test = axios.get(config.baseURL)
-//   console.log(test)
-// }
-
-// export { fetchBook }
