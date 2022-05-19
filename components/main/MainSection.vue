@@ -45,9 +45,6 @@ export default {
       // this.searchList.forEach((element) => {
       //   console.log(element)
       // })
-      for (const key in this.searchList) {
-        console.log(this.searchList[key])
-      }
     },
   },
 }
