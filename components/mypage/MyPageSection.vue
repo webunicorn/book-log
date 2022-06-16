@@ -1,5 +1,7 @@
 <template>
-  <div>마이 페이지 입니다.</div>
+  <div>
+    <p>마이 페이지 입니다.</p>
+  </div>
 </template>
 
 <script>
